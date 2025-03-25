@@ -1,14 +1,22 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import { useState } from 'react' // Import useState from React to manage state
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0) // State for count
+  const [theme, setTheme] = useState('light') // State for theme
+
+  // Function to toggle the theme between light and dark
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light') // Toggle theme
+  }
 
   return (
     <>
-      <div>
+      <div className={theme}> {/* Apply the theme class to the main container */}
+        <button onClick={toggleTheme}>Toggle Theme</button> {/* Button to toggle theme */}
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
